@@ -1,0 +1,11 @@
+<html>
+<head></head>
+ <frameset cols="30%,70%">
+   <frame src="index.html">
+   <frameset rows ="30%,70%">
+    <frame src = "header.html">
+	<frame src="28.html">
+	</frameset>
+   </frameset>
+ <body></body>
+ </html>

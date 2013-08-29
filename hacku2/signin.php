@@ -1,0 +1,36 @@
+<?php
+//signin
+
+$username=$_POST['accountName'];
+$password=$_POST['password'];
+$authval=$_COOKIE['auth'];
+$auths=explode("::",$authval);
+
+if($auths[0]=="valid"&&$auths[1]==$username)
+{
+	echo" You are signed in as, " .$auths[1];
+	echo file_get_contents("home.php");
+	die();
+}
+
+
+
+$fp=fopen("userpass.txt","r");
+
+while($tuple=fgets($fp,4096))
+{
+	$fields=explode("::",$tuple);
+	//echo $fields[0]."==".$username."&&". $fields[1]."==".$password;
+	if($fields[0]==$username&&$fields[1]==$password)
+	{
+		$authval="valid::".$username."::";
+header( 'Location: home.php' ) ;		
+		setcookie("auth",$authval,time()+3600);
+		 
+		die();
+		 
+	}
+}
+
+echo "Bad Login".file_get_contents("signin.html");
+?>

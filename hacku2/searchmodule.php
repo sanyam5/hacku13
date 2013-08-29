@@ -1,0 +1,111 @@
+<?php
+$authval=$_COOKIE['auth'];
+if(!$authval)
+
+{
+	header("Location:signin.html");
+	die();
+}
+$auths=explode("::",$authval);
+if($auths[0]!="valid")
+{
+	header("Location:signin.html");
+	die();
+}
+
+
+echo '
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="ff ff16">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Objective Scheduler</title>
+<meta http-equiv="imagetoolbar" content="false" />
+<link rel="stylesheet" type="text/css" href="Battle.net%20Account%20Login_files/common.css" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/login/static/local-common/css/common-ie.css?v40"/><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/login/static/local-common/css/common-ie6.css?v40"/><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/login/static/local-common/css/common-ie7.css?v40"/><![endif]-->
+<link rel="shortcut icon" href="https://us.battle.net/login/static/_themes/bam/img/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="Battle.net%20Account%20Login_files/master.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/login/static/_themes/bam/css/master-ie6.css?v3" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="Battle.net%20Account%20Login_files/en-gb.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/login/static/_themes/store/css/_lang/en-gb-ie6.css?v3" /><![endif]-->
+</head>
+<body class="en-gb">
+<div id="wrapper">
+<div id="content" class="login">
+<div id="left" style="background-color:#00c4de">
+<h1><br><br><font color="black">You are logged in as '.$auths[1].'</font></h1>
+<h2><font color="black">Search Module</font></h2>
+<form method="get" id="form" action="searchmodule.php" >
+<font color="black">
+Module Name <input type="text" name="module"></font><br><br><br>
+<input type="submit" value="Search"><br>
+</form><br><br><br><br>
+';
+
+
+echo'
+</div>
+</div>';
+
+if(isset($_GET['module']))
+
+{
+	 $module=$_GET['module'];
+	$fp=fopen("modulelist.txt","r");
+	echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+	while($amodulea=fgets($fp,4096))
+	{
+		$amodulet=explode("::",$amodulea);
+		$amodule=$amodulet[0];
+		$i=0;
+		
+		
+		while($i<=strlen($amodule)-strlen($module))
+		{
+			
+			if($module==substr($amodule,$i,strlen($module)))
+			{
+				echo '<br><a href="modules/'.$amodule.'" ><font size="5">'.$amodule.'</font>
+
+						</a>
+ 					';
+ 					$userfilen="users/".$auths[1].".txt";
+ 					$userfile=fopen($userfilen,"r");
+ 					$flag=0;
+ 					while($usermodules=fgets($userfile,4096))
+ 					{
+ 						
+ 						$temp=explode("::",$usermodules);
+ 						$usermodule=$temp[0];
+ 						//echo $usermodule."  <br> ".$amodule;
+ 						if($usermodule==$amodule)
+ 						{
+ 							$flag=1;
+ 							break;
+ 						}
+ 					}
+ 					
+ 					if($flag)
+ 					{
+ 						echo'<font size="5">(already imported)</font>';
+ 					}
+ 					else 
+ 					{
+ 						echo '<a href="importmodule.php?mod='.$amodule.'" ><font size="5"> ( Import module	)</font></a>';
+ 					}
+ 					break;
+			}
+			$i++;
+		}
+		
+	}
+}
+echo'
+<br><br><br><br>
+<button type="button" onclick="window.location.href=\'home.php\' " > <font size="4"; color ="black"; style="align:center"; > I\'m Done with Searching Modules</font></button>
+</body>
+</html>';
+
+?>

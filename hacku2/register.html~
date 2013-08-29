@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="ff ff16">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Objective Scheduler</title>
+<meta http-equiv="imagetoolbar" content="false" />
+<link rel="stylesheet" type="text/css" href="Battle.net%20Account%20Login_files/common.css" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/login/static/local-common/css/common-ie.css?v40"/><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/login/static/local-common/css/common-ie6.css?v40"/><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/login/static/local-common/css/common-ie7.css?v40"/><![endif]-->
+<link rel="shortcut icon" href="https://us.battle.net/login/static/_themes/bam/img/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="Battle.net%20Account%20Login_files/master.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/login/static/_themes/bam/css/master-ie6.css?v3" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="Battle.net%20Account%20Login_files/en-gb.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/login/static/_themes/store/css/_lang/en-gb-ie6.css?v3" /><![endif]-->
+</head>
+<body class="en-gb">
+<div id="wrapper">
+<div id="left" class="login" style="background-color:#00c4de">
+<div id="left">
+<h2><br><font color="black">Objective Scheduler</h2>
+<h2>Register</font></h2>
+<form method="post" id="form" action="register.php">
+<p><label for="accountName" class="label"><font color="black"><b>USER-NAME</b></font></label>
+<input type="text" id="accountName" name="accountName" maxlength="320" tabindex="1" class="input" /></p>
+<p><label for="password" class="label"><font color="black"><b>Password</b></label>
+<input type="password" id="password" name="password" maxlength="16" tabindex="2" autocomplete="off" class="input" /></p>
+<p>
+<button class="ui-button button1 " type="submit" data-text="Processing…">
+<span class="button-left">
+<button type="button"><a href="signin.html"><font color="black">Register</font></a></button>
+
+
+</span>
+</button>
+</p>
+</form>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</body>
+</html>

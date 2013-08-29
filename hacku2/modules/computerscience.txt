@@ -1,0 +1,4 @@
+1362331800:ELECTRONICS LAB:22.321416:87.310088:Electronics Lab Assignments:
+1362339000:ALGORITHMS LAB:22.317922:87.309229:Algorithms Lab Test on Recursion and DP:
+1362326400:Discrete Mathematics:22.319629:87.30998:Lecture on Discrete Mathematics:
+1362353400:CS Dept. O.P.:22.316711:87.301118:CS Department Orientation cum Interaction Programme with Seniors:

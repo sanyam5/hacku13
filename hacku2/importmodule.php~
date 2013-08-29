@@ -1,0 +1,30 @@
+<?php
+$authval=$_COOKIE['auth'];
+if(!$authval)
+
+{
+	header("Location:signin.html");
+	die();
+}
+$auths=explode("::",$authval);
+if($auths[0]!="valid")
+{
+	header("Location:signin.html");
+	die();
+}
+
+//echo "You are signed in as, ".$auths[1];
+
+if(!isset($_GET['mod']))
+{
+	echo "No module was selected for importing";
+	die();
+}
+
+$userfilen="users/".$auths[1].".txt";
+$userfile=fopen($userfilen,"a");
+
+fwrite($userfile,$_GET['mod']."\n");
+
+header("Location:".$_SERVER['HTTP_REFERER']);
+?>

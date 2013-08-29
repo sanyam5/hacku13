@@ -1,0 +1,29 @@
+<?php
+//register
+$username=$_POST['accountName'];
+$password=$_POST['password'];
+
+$fp=fopen("userpass.txt","r+");
+
+while($tuple=fgets($fp,4096))
+{
+	$fields=explode("::",$tuple);
+	if($fields[0]==$username)
+	{
+		echo "<h1>Username already exists!!</h1> ".file_get_contents("register.html");
+		die();
+		 
+	}
+}
+
+$newtuple=$username."::".$password."::\n";
+fwrite($fp,$newtuple);
+$userfilen="users/".$username.".txt";
+$userfile=fopen($userfilen,"a+");
+chmod($userfilen,0777);
+fwrite($userfile,"users/".$username."personal.txt::\n");
+$userpersonaln="users/".$username."personal.txt";
+$userpersonal=fopen($userpersonaln,"a+");
+chmod($userpersonaln,0777);
+echo "You have successfully signed up".file_get_contents("signin.html");
+?>
